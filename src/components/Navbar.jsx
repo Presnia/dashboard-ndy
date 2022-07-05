@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { FiShoppingCart } from 'react-icons/fi';
+import { FiShoppingCart, FiSearch } from 'react-icons/fi';
 import { BsChatLeft } from 'react-icons/bs';
 import { RiNotification3Line } from 'react-icons/ri';
 import { MdKeyboardArrowDown } from 'react-icons/md';
@@ -11,12 +11,12 @@ import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
-    <TooltipComponent content="title" position="ButtomCenter">
+    <TooltipComponent content={title} position="ButtomCenter">
         <button
             type="button"
             onClick={customFunc}
             style={{ color }}
-            className="relative text-xl rounded-full p-3 hover:bg-light-gray"
+            className="relative text-xl rounded-full p-3 hover:bg-light-gray hover:drop-shadow-xl"
         >
             <span
                 style={{ background: dotColor }}
@@ -59,14 +59,24 @@ const Navbar = () => {
 
     return (
         <div className="flex justify-between p-2 md:mx-6 relative">
-            <NavButton
-                title="Menu"
-                customFunc={() =>
-                    setActiveMenu((prevActiveMenu) => !prevActiveMenu)
-                }
-                color={currentColor}
-                icon={<AiOutlineMenu />}
-            />
+            <div className="flex">
+                <NavButton
+                    title="Menu"
+                    customFunc={() =>
+                        setActiveMenu((prevActiveMenu) => !prevActiveMenu)
+                    }
+                    color={currentColor}
+                    icon={<AiOutlineMenu />}
+                />
+                <NavButton
+                    title="Search"
+                    customFunc={() =>
+                        setActiveMenu((prevActiveMenu) => !prevActiveMenu)
+                    }
+                    color={currentColor}
+                    icon={<FiSearch />}
+                />
+            </div>
 
             <div className="flex">
                 <NavButton
@@ -102,7 +112,7 @@ const Navbar = () => {
                         <p>
                             <span className="text-gray-400 text-14">Hi, </span>{' '}
                             <span className="text-gray-400 text-14 font-bold ml-1">
-                                Michael
+                                Andrew
                             </span>
                         </p>
                         <MdKeyboardArrowDown className="text-gray-400 text-14" />

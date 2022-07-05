@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { SiShopware } from 'react-icons/si';
-import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { useStateContext } from '../contexts/ContextProvider';
 
@@ -38,19 +37,7 @@ const Sidebar = () => {
                         <TooltipComponent
                             content="Menu"
                             position="BottomCenter"
-                        >
-                            <button
-                                type="button"
-                                onClick={() =>
-                                    setActiveMenu(
-                                        (prevActiveMenu) => !prevActiveMenu
-                                    )
-                                }
-                                className="block text-xl rounded-full p-3 hover:bg-light-gray mt-4 sd:hidden"
-                            >
-                                <MdOutlineCancel />
-                            </button>
-                        </TooltipComponent>
+                        ></TooltipComponent>
                     </div>
                     <div className="mt-10">
                         {links.map((item) => (
