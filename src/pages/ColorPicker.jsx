@@ -8,6 +8,17 @@ const change = (args) => {
         args.currentValue.hex;
 };
 
+const CustomColorPicker = ({ id, mode }) => (
+    <ColorPickerComponent
+        id={id}
+        mode={mode}
+        modeSwitcher={false}
+        inline
+        showButtons={false}
+        change={change}
+    />
+);
+
 const ColorPicker = () => {
     return (
         <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
@@ -19,27 +30,13 @@ const ColorPicker = () => {
                         <p className="text-2xl font-semibold mt-2 mb-4">
                             Inline Pallete
                         </p>
-                        <ColorPickerComponent
-                            id="inline-pallete"
-                            mode="Pallete"
-                            modeSwitcher={false}
-                            inline
-                            showButtons={false}
-                            change={change}
-                        />
+                        <CustomColorPicker id="inline-pallete" mode="Pallete" />
                     </div>
                     <div>
                         <p className="text-2xl font-semibold mt-2 mb-4">
                             Inline Picker
                         </p>
-                        <ColorPickerComponent
-                            id="inline-picker"
-                            mode="Picker"
-                            modeSwitcher={false}
-                            inline
-                            showButtons={false}
-                            change={change}
-                        />
+                        <CustomColorPicker id="inline-picker" mode="Picker" />
                     </div>
                 </div>
             </div>
