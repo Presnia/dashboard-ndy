@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import { Header, Navbar, Sidebar, ThemeSettings, Footer } from './components';
+import { Navbar, Sidebar, ThemeSettings, Footer } from './components';
 import {
     Area,
     Bar,
@@ -34,7 +34,18 @@ const App = () => {
         setThemeSettings,
         currentColor,
         currentMode,
+        setCurrentColor,
+        setCurrentMode,
     } = useStateContext();
+
+    useEffect(() => {
+        const currentThemeColor = localStorage.getItem('colorMode');
+        const currentThemeMode = localStorage.getItem('themeMode');
+        if (currentThemeColor && currentThemeMode) {
+            setCurrentColor(currentThemeColor);
+            setCurrentMode(currentThemeMode);
+        }
+    }, [setCurrentColor, setCurrentMode]);
 
     return (
         <div className={currentMode === 'Dark' ? 'dark' : ''}>
@@ -123,6 +134,7 @@ const App = () => {
                                 <Route path="/stacked" element={<Stacked />} />
                             </Routes>
                         </div>
+                        <Footer />
                     </div>
                 </div>
             </BrowserRouter>
