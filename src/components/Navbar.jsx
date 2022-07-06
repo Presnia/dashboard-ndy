@@ -69,9 +69,7 @@ const Navbar = () => {
                 />
                 <NavButton
                     title="Search"
-                    customFunc={() =>
-                        setActiveMenu((prevActiveMenu) => !prevActiveMenu)
-                    }
+                    customFunc={handleActiveMenu}
                     color={currentColor}
                     icon={<FiSearch />}
                 />
@@ -120,7 +118,7 @@ const Navbar = () => {
 
                 {isClicked.cart && <Cart />}
                 {isClicked.chat && <Chat />}
-                {isClicked.notificatioin && <Notification />}
+                {isClicked.notification && <Notification />}
                 {isClicked.userProfile && <UserProfile />}
             </div>
         </div>
