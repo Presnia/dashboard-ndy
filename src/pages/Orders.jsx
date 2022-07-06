@@ -18,6 +18,7 @@ import { ordersData, contextMenuItems, ordersGrid } from '../data/dummy';
 import { Header } from '../components';
 
 const Orders = () => {
+    const editing = { allowDeleting: true, allowEditing: true };
     return (
         <div className="m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl">
             <Header title="Orders" category="Page" />
@@ -26,10 +27,14 @@ const Orders = () => {
                 dataSource={ordersData}
                 allowPaging
                 allowSorting
+                allowExcelExport
+                allowPdfExport
+                contextMenuItems={contextMenuItems}
+                editSettings={editing}
             >
                 <ColumnsDirective>
-                    {ordersGrid.map((item, index) => (
-                        <ColumnDirective key={index} {...item} />
+                    {ordersGrid.map((i, index) => (
+                        <ColumnDirective key={index} {...i} />
                     ))}
                 </ColumnsDirective>
                 <Inject
