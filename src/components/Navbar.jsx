@@ -60,7 +60,7 @@ const Navbar = () => {
     const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
     return (
-        <div className="flex justify-between p-2 md:mx-6 relative">
+        <div className="flex justify-between p-2 md:mx-6 relative z-1000">
             <div className="flex">
                 <NavButton
                     title="Menu"
