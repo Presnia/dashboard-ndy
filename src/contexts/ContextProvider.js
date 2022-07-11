@@ -7,6 +7,7 @@ const initialState = {
     cart: false,
     userProfile: false,
     notification: false,
+    searchInput: false,
 };
 
 export const ContextProvider = ({ children }) => {

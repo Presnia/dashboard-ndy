@@ -9,6 +9,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import avatar from '../data/my-avatar.jpg';
 import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
+import SearchInput from './SearchInput';
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
     <TooltipComponent content={title} position="BottomCenter">
@@ -69,7 +70,7 @@ const Navbar = () => {
                 />
                 <NavButton
                     title="Search"
-                    customFunc={handleActiveMenu}
+                    customFunc={() => handleClick('searchInput')}
                     color={currentColor}
                     icon={<FiSearch />}
                 />
@@ -115,11 +116,13 @@ const Navbar = () => {
                         <MdKeyboardArrowDown className="text-gray-400 text-14" />
                     </div>
                 </TooltipComponent>
+                {/* <SearchInput /> */}
 
                 {isClicked.cart && <Cart />}
                 {isClicked.chat && <Chat />}
                 {isClicked.notification && <Notification />}
                 {isClicked.userProfile && <UserProfile />}
+                {isClicked.searchInput && <SearchInput />}
             </div>
         </div>
     );
